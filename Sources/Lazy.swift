@@ -91,6 +91,13 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
     }
 
     #endif
+
+    /// Initializes `value`.
+    public func initialize() {
+        if !isInitialized {
+            _ref.value = _ref.closure()
+        }
+    }
     
 }
 
