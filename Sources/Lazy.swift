@@ -110,3 +110,159 @@ private final class _LazyRef<Value> {
     }
 
 }
+
+#if swift(>=3)
+
+/// Adds `lhs` and `rhs`.
+public func + <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value + rhs.value)
+}
+
+/// Adds `lhs` and `rhs`.
+public func + <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value + rhs)
+}
+
+/// Adds `lhs` and `rhs`.
+public func + <T: IntegerArithmetic>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs + rhs.value)
+}
+
+/// Subtracts `lhs` and `rhs`.
+public func - <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value - rhs.value)
+}
+
+/// Subtracts `lhs` and `rhs`.
+public func - <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value - rhs)
+}
+
+/// Subtracts `lhs` and `rhs`.
+public func - <T: IntegerArithmetic>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs - rhs.value)
+}
+
+/// Multiplies `lhs` and `rhs`.
+public func * <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value * rhs.value)
+}
+
+/// Multiplies `lhs` and `rhs`.
+public func * <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value * rhs)
+}
+
+/// Multiplies `lhs` and `rhs`.
+public func * <T: IntegerArithmetic>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs * rhs.value)
+}
+
+/// Divides `lhs` and `rhs`.
+public func / <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value / rhs.value)
+}
+
+/// Divides `lhs` and `rhs`.
+public func / <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value / rhs)
+}
+
+/// Divides `lhs` and `rhs`.
+public func / <T: IntegerArithmetic>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs / rhs.value)
+}
+
+/// Divides `lhs` and `rhs`.
+public func % <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value % rhs.value)
+}
+
+/// Divides `lhs` and `rhs`.
+public func % <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value % rhs)
+}
+
+/// Divides `lhs` and `rhs`.
+public func % <T: IntegerArithmetic>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs % rhs.value)
+}
+
+#else
+
+/// Adds `lhs` and `rhs`.
+public func + <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value + rhs.value)
+}
+
+/// Adds `lhs` and `rhs`.
+public func + <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value + rhs)
+}
+
+/// Adds `lhs` and `rhs`.
+public func + <T: IntegerArithmeticType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs + rhs.value)
+}
+
+/// Subtracts `lhs` and `rhs`.
+public func - <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value - rhs.value)
+}
+
+/// Subtracts `lhs` and `rhs`.
+public func - <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value - rhs)
+}
+
+/// Subtracts `lhs` and `rhs`.
+public func - <T: IntegerArithmeticType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs - rhs.value)
+}
+
+/// Multiplies `lhs` and `rhs`.
+public func * <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value * rhs.value)
+}
+
+/// Multiplies `lhs` and `rhs`.
+public func * <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value * rhs)
+}
+
+/// Multiplies `lhs` and `rhs`.
+public func * <T: IntegerArithmeticType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs * rhs.value)
+}
+
+/// Divides `lhs` and `rhs`.
+public func / <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value / rhs.value)
+}
+
+/// Divides `lhs` and `rhs`.
+public func / <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value / rhs)
+}
+
+/// Divides `lhs` and `rhs`.
+public func / <T: IntegerArithmeticType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs / rhs.value)
+}
+
+/// Divides `lhs` and `rhs`.
+public func % <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value % rhs.value)
+}
+
+/// Divides `lhs` and `rhs`.
+public func % <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value % rhs)
+}
+
+/// Divides `lhs` and `rhs`.
+public func % <T: IntegerArithmeticType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs % rhs.value)
+}
+
+#endif
