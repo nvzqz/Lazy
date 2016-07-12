@@ -26,7 +26,7 @@
 //
 
 /// A lazy enclosure around a value.
-public struct Lazy<Value>: CustomStringConvertible {
+public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible {
 
     private var _ref: _LazyRef<Value>
 
@@ -53,6 +53,11 @@ public struct Lazy<Value>: CustomStringConvertible {
     /// A textual representation of this instance.
     public var description: String {
         return "Lazy(\(_ref.value.map(String.init(_:)) ?? "Uninitialized"))"
+    }
+
+    /// A textual representation of this instance, suitable for debugging.
+    public var debugDescription: String {
+        return "Lazy(\(_ref.value.map(String.init(reflecting:)) ?? "Uninitialized"))"
     }
 
     #if swift(>=3)
