@@ -188,81 +188,246 @@ public func % <T: IntegerArithmetic>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs % rhs.value)
 }
 
+/// Returns the intersection of bits set in the two arguments.
+///
+/// - Complexity: O(1).
+public func & <T: BitwiseOperations>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value & rhs.value)
+}
+
+/// Returns the intersection of bits set in the two arguments.
+///
+/// - Complexity: O(1).
+public func & <T: BitwiseOperations>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value & rhs)
+}
+
+/// Returns the intersection of bits set in the two arguments.
+///
+/// - Complexity: O(1).
+public func & <T: BitwiseOperations>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs & rhs.value)
+}
+
+/// Returns the union of bits set in the two arguments.
+///
+/// - Complexity: O(1).
+public func | <T: BitwiseOperations>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value | rhs.value)
+}
+
+/// Returns the union of bits set in the two arguments.
+///
+/// - Complexity: O(1).
+public func | <T: BitwiseOperations>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value | rhs)
+}
+
+/// Returns the union of bits set in the two arguments.
+///
+/// - Complexity: O(1).
+public func | <T: BitwiseOperations>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs | rhs.value)
+}
+
+/// Returns the bits that are set in exactly one of the two arguments.
+///
+/// - Complexity: O(1).
+public func ^ <T: BitwiseOperations>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value ^ rhs.value)
+}
+
+/// Returns the bits that are set in exactly one of the two arguments.
+///
+/// - Complexity: O(1).
+public func ^ <T: BitwiseOperations>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value ^ rhs)
+}
+
+/// Returns the bits that are set in exactly one of the two arguments.
+///
+/// - Complexity: O(1).
+public func ^ <T: BitwiseOperations>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs ^ rhs.value)
+}
+
+/// Returns the inverse of the bits set in the argument.
+///
+/// - Complexity: O(1).
+public prefix func ~ <T: BitwiseOperations>(x: Lazy<T>) -> Lazy<T> {
+    return Lazy(~x.value)
+}
+
 #else
 
 /// Adds `lhs` and `rhs`.
+@warn_unused_result
 public func + <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs.value + rhs.value)
 }
 
 /// Adds `lhs` and `rhs`.
+@warn_unused_result
 public func + <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
     return Lazy(lhs.value + rhs)
 }
 
 /// Adds `lhs` and `rhs`.
+@warn_unused_result
 public func + <T: IntegerArithmeticType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs + rhs.value)
 }
 
 /// Subtracts `lhs` and `rhs`.
+@warn_unused_result
 public func - <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs.value - rhs.value)
 }
 
 /// Subtracts `lhs` and `rhs`.
+@warn_unused_result
 public func - <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
     return Lazy(lhs.value - rhs)
 }
 
 /// Subtracts `lhs` and `rhs`.
+@warn_unused_result
 public func - <T: IntegerArithmeticType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs - rhs.value)
 }
 
 /// Multiplies `lhs` and `rhs`.
+@warn_unused_result
 public func * <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs.value * rhs.value)
 }
 
 /// Multiplies `lhs` and `rhs`.
+@warn_unused_result
 public func * <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
     return Lazy(lhs.value * rhs)
 }
 
 /// Multiplies `lhs` and `rhs`.
+@warn_unused_result
 public func * <T: IntegerArithmeticType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs * rhs.value)
 }
 
 /// Divides `lhs` and `rhs`.
+@warn_unused_result
 public func / <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs.value / rhs.value)
 }
 
 /// Divides `lhs` and `rhs`.
+@warn_unused_result
 public func / <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
     return Lazy(lhs.value / rhs)
 }
 
 /// Divides `lhs` and `rhs`.
+@warn_unused_result
 public func / <T: IntegerArithmeticType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs / rhs.value)
 }
 
 /// Divides `lhs` and `rhs`.
+@warn_unused_result
 public func % <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs.value % rhs.value)
 }
 
 /// Divides `lhs` and `rhs`.
+@warn_unused_result
 public func % <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
     return Lazy(lhs.value % rhs)
 }
 
 /// Divides `lhs` and `rhs`.
+@warn_unused_result
 public func % <T: IntegerArithmeticType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs % rhs.value)
+}
+
+/// Returns the intersection of bits set in `lhs` and `rhs`.
+///
+/// - Complexity: O(1).
+@warn_unused_result
+public func & <T: BitwiseOperationsType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value & rhs.value)
+}
+
+/// Returns the intersection of bits set in `lhs` and `rhs`.
+///
+/// - Complexity: O(1).
+@warn_unused_result
+public func & <T: BitwiseOperationsType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value & rhs)
+}
+
+/// Returns the intersection of bits set in `lhs` and `rhs`.
+///
+/// - Complexity: O(1).
+@warn_unused_result
+public func & <T: BitwiseOperationsType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs & rhs.value)
+}
+
+/// Returns the union of bits set in `lhs` and `rhs`.
+///
+/// - Complexity: O(1).
+@warn_unused_result
+public func | <T: BitwiseOperationsType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value | rhs.value)
+}
+
+/// Returns the union of bits set in `lhs` and `rhs`.
+///
+/// - Complexity: O(1).
+@warn_unused_result
+public func | <T: BitwiseOperationsType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value | rhs)
+}
+
+/// Returns the union of bits set in `lhs` and `rhs`.
+///
+/// - Complexity: O(1).
+@warn_unused_result
+public func | <T: BitwiseOperationsType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs | rhs.value)
+}
+
+/// Returns the bits that are set in exactly one of `lhs` and `rhs`.
+///
+/// - Complexity: O(1).
+@warn_unused_result
+public func ^ <T: BitwiseOperationsType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value ^ rhs.value)
+}
+
+/// Returns the bits that are set in exactly one of `lhs` and `rhs`.
+///
+/// - Complexity: O(1).
+@warn_unused_result
+public func ^ <T: BitwiseOperationsType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value ^ rhs)
+}
+
+/// Returns the bits that are set in exactly one of `lhs` and `rhs`.
+///
+/// - Complexity: O(1).
+@warn_unused_result
+public func ^ <T: BitwiseOperationsType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs ^ rhs.value)
+}
+
+/// Returns `x ^ ~Self.allZeros`.
+///
+/// - Complexity: O(1).
+@warn_unused_result
+public prefix func ~ <T: BitwiseOperationsType>(x: Lazy<T>) -> Lazy<T> {
+    return Lazy(~x.value)
 }
 
 #endif
