@@ -122,6 +122,31 @@ private final class _LazyRef<Value> {
 
 }
 
+extension Lazy: CustomReflectable {
+
+    private var _customMirror: Mirror {
+        return Mirror(self, children: ["value": _ref.value])
+    }
+
+    #if swift(>=3)
+
+    /// The custom mirror for this instance.
+    public var customMirror: Mirror {
+        return _customMirror
+    }
+
+    #else
+
+    /// Returns the `Mirror` for `self`.
+    @warn_unused_result
+    public func customMirror() -> Mirror {
+        return _customMirror
+    }
+
+    #endif
+
+}
+
 #if swift(>=3)
 
 /// Adds `lhs` and `rhs`.
