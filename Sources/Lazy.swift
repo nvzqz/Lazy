@@ -175,6 +175,20 @@ public postfix func * <T>(lazy: Lazy<T>) -> T {
     return lazy.value
 }
 
+postfix operator ~ {}
+
+#if swift(>=3)
+/// Returns a lazy value.
+public postfix func ~ <T>(value: @autoclosure(escaping) () -> T) -> Lazy<T> {
+    return Lazy(value)
+}
+#else
+/// Returns a lazy value.
+public postfix func ~ <T>(@autoclosure(escaping) value: () -> T) -> Lazy<T> {
+    return Lazy(value)
+}
+#endif
+
 #if swift(>=3)
 
 /// Adds `lhs` and `rhs`.
