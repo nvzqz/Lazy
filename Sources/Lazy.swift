@@ -43,7 +43,7 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
         }
         set {
             if !isUniquelyReferencedNonObjC(&_ref) {
-                _ref = _LazyRef(newValue)
+                _ref = _LazyRef(value: newValue, closure: { newValue })
             } else {
                 _ref.value = newValue
             }
@@ -98,5 +98,10 @@ private final class _LazyRef<Value> {
     }
 
     #endif
+
+    init(value: Value?, closure: () -> Value) {
+        self.value = value
+        self.closure = closure
+    }
 
 }
