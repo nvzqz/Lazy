@@ -50,6 +50,11 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
         }
     }
 
+    /// `true` if `value` is initialized.
+    public var isInitialized: Bool {
+        return _ref.value != nil
+    }
+
     /// A textual representation of this instance.
     public var description: String {
         return "Lazy(\(_ref.value.map(String.init(_:)) ?? "Uninitialized"))"
