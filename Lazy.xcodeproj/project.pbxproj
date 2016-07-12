@@ -6,6 +6,13 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		522880F21D358988001D4F64 /* Lazy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522880F11D358987001D4F64 /* Lazy.swift */; };
+		522880F31D358988001D4F64 /* Lazy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522880F11D358987001D4F64 /* Lazy.swift */; };
+		522880F41D358988001D4F64 /* Lazy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522880F11D358987001D4F64 /* Lazy.swift */; };
+		522880F51D358988001D4F64 /* Lazy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522880F11D358987001D4F64 /* Lazy.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		522880BD1D35882F001D4F64 /* Lazy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lazy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		522880CB1D35883B001D4F64 /* Lazy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lazy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -13,6 +20,7 @@
 		522880E51D358852001D4F64 /* Lazy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lazy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		522880EF1D3588BD001D4F64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		522880F01D358960001D4F64 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		522880F11D358987001D4F64 /* Lazy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lazy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,7 @@
 		522880ED1D3588BD001D4F64 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				522880F11D358987001D4F64 /* Lazy.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -201,24 +210,28 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 59K22428RE;
 						DevelopmentTeamName = "Nikolai Vazquez";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					522880CA1D35883B001D4F64 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 59K22428RE;
 						DevelopmentTeamName = "Nikolai Vazquez";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					522880D71D358847001D4F64 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 59K22428RE;
 						DevelopmentTeamName = "Nikolai Vazquez";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					522880E41D358852001D4F64 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 59K22428RE;
 						DevelopmentTeamName = "Nikolai Vazquez";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -279,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522880F21D358988001D4F64 /* Lazy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522880F31D358988001D4F64 /* Lazy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522880F41D358988001D4F64 /* Lazy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522880F51D358988001D4F64 /* Lazy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
