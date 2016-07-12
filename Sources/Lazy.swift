@@ -168,6 +168,13 @@ extension Lazy where Value: AbsoluteValuable {
 
 }
 
+postfix operator * {}
+
+/// Returns the `value` of `lazy`.
+public postfix func * <T>(lazy: Lazy<T>) -> T {
+    return lazy.value
+}
+
 #if swift(>=3)
 
 /// Adds `lhs` and `rhs`.
