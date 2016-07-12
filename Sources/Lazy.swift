@@ -147,6 +147,27 @@ extension Lazy: CustomReflectable {
 
 }
 
+extension Lazy where Value: AbsoluteValuable {
+
+    #if swift(>=3)
+
+    /// Returns the absolute value of `x`.
+    public static func abs(_ x: Lazy) -> Lazy {
+        return Lazy(Value.abs(x.value))
+    }
+
+    #else
+
+    /// Returns the absolute value of `x`.
+    @warn_unused_result
+    public static func abs(x: Lazy) -> Lazy {
+        return Lazy(Value.abs(x.value))
+    }
+
+    #endif
+
+}
+
 #if swift(>=3)
 
 /// Adds `lhs` and `rhs`.
