@@ -12,6 +12,7 @@
 		522880D81D358847001D4F64 /* Lazy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lazy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		522880E51D358852001D4F64 /* Lazy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lazy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		522880EF1D3588BD001D4F64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		522880F01D358960001D4F64 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +53,7 @@
 				522880ED1D3588BD001D4F64 /* Sources */,
 				522880EE1D3588BD001D4F64 /* Support */,
 				522880BE1D35882F001D4F64 /* Products */,
+				522880F01D358960001D4F64 /* LICENSE.md */,
 			);
 			sourceTree = "<group>";
 		};
