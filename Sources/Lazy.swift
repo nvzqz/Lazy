@@ -72,11 +72,22 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
         _ref = _LazyRef(value)
     }
 
+    /// Maps `transform` over `value` and returns a lazy result.
+    public func map<T>(_ transform: (Value) -> T) -> Lazy<T> {
+        return Lazy<T>(transform(self.value))
+    }
+
     #else
 
     /// Create a lazy value.
     public init(@autoclosure(escaping) _ value: () -> Value) {
         _ref = _LazyRef(value)
+    }
+
+    /// Maps `transform` over `value` and returns a lazy result.
+    @warn_unused_result
+    public func map<T>(transform: (Value) -> T) -> Lazy<T> {
+        return Lazy<T>(transform(self.value))
     }
 
     #endif
