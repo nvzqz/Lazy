@@ -22,6 +22,7 @@
 		522880F01D358960001D4F64 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		522880F11D358987001D4F64 /* Lazy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lazy.swift; sourceTree = "<group>"; };
 		522880F61D358D97001D4F64 /* Lazy.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Lazy.playground; sourceTree = "<group>"; };
+		522880F71D35CAFB001D4F64 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 				522880EE1D3588BD001D4F64 /* Support */,
 				522880BE1D35882F001D4F64 /* Products */,
 				522880F61D358D97001D4F64 /* Lazy.playground */,
+				522880F71D35CAFB001D4F64 /* Package.swift */,
 				522880F01D358960001D4F64 /* LICENSE.md */,
 			);
 			sourceTree = "<group>";
@@ -825,6 +827,7 @@
 				522880C41D35882F001D4F64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		522880D01D35883B001D4F64 /* Build configuration list for PBXNativeTarget "Lazy iOS" */ = {
 			isa = XCConfigurationList;
@@ -833,6 +836,7 @@
 				522880D21D35883B001D4F64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		522880DD1D358847001D4F64 /* Build configuration list for PBXNativeTarget "Lazy watchOS" */ = {
 			isa = XCConfigurationList;
@@ -841,6 +845,7 @@
 				522880DF1D358847001D4F64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		522880EA1D358852001D4F64 /* Build configuration list for PBXNativeTarget "Lazy tvOS" */ = {
 			isa = XCConfigurationList;
@@ -849,6 +854,7 @@
 				522880EC1D358852001D4F64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
