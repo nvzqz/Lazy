@@ -88,3 +88,35 @@ manager for Objective-C and Swift.
 ### Install Manually
 
 Simply add the `Lazy.swift` file into your project.
+
+## Usage
+
+### Evaluating
+
+A lazy value is evaluated the first time its contained value is referenced.
+
+If you need to evaluate a lazy value without getting it, you can do so with the
+`evaluate()` method.
+
+### Number Operations
+
+Lazy allows you to be very laid back with numerical operations.
+
+```swift
+let meaningOfLife = Lazy(8) * 5 + 2
+let result = result.value  // 42
+```
+
+### Shorthand Operations
+
+If you're tired of using `Lazy(...)` around your values, there's the `~` postfix
+operator at your disposal.
+
+Similar to `~`, the `*` postfix operator acts as shorthand for obtaining a
+contained value.
+
+These can be used in combination with each other for ultimate laziness:
+
+```swift
+Lazy("I should sleep in today!")*.uppercased()~  // "I SHOULD SLEEP IN TODAY!"
+```
