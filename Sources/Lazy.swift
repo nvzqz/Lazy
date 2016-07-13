@@ -198,6 +198,114 @@ public postfix func ~ <T>(@autoclosure(escaping) value: () -> T) -> Lazy<T> {
 }
 #endif
 
+/// Returns a Boolean value indicating whether two values are equal.
+@warn_unused_result
+public func == <T: Equatable>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<Bool> {
+    return Lazy(lhs.value == rhs.value)
+}
+
+/// Returns a Boolean value indicating whether two values are equal.
+@warn_unused_result
+public func == <T: Equatable>(lhs: Lazy<T>, rhs: T) -> Lazy<Bool> {
+    return Lazy(lhs.value == rhs)
+}
+
+/// Returns a Boolean value indicating whether two values are equal.
+@warn_unused_result
+public func == <T: Equatable>(lhs: T, rhs: Lazy<T>) -> Lazy<Bool> {
+    return Lazy(lhs == rhs.value)
+}
+
+/// Returns a Boolean value indicating whether two values are equal.
+@warn_unused_result
+public func == <T: Equatable>(lhs: Lazy<T?>, rhs: Lazy<T?>) -> Lazy<Bool> {
+    return Lazy(lhs.value == rhs.value)
+}
+
+/// Returns a Boolean value indicating whether two values are equal.
+@warn_unused_result
+public func == <T: Equatable>(lhs: Lazy<T?>, rhs: T?) -> Lazy<Bool> {
+    return Lazy(lhs.value == rhs)
+}
+
+/// Returns a Boolean value indicating whether two values are equal.
+@warn_unused_result
+public func == <T: Equatable>(lhs: T?, rhs: Lazy<T?>) -> Lazy<Bool> {
+    return Lazy(lhs == rhs.value)
+}
+
+/// Returns a Boolean value indicating whether two values are equal.
+@warn_unused_result
+public func == <T: Equatable>(lhs: Lazy<T!>, rhs: Lazy<T!>) -> Lazy<Bool> {
+    return Lazy(lhs.value == rhs.value)
+}
+
+/// Returns a Boolean value indicating whether two values are equal.
+@warn_unused_result
+public func == <T: Equatable>(lhs: Lazy<T!>, rhs: T!) -> Lazy<Bool> {
+    return Lazy(lhs.value == rhs)
+}
+
+/// Returns a Boolean value indicating whether two values are equal.
+@warn_unused_result
+public func == <T: Equatable>(lhs: T!, rhs: Lazy<T!>) -> Lazy<Bool> {
+    return Lazy(lhs == rhs.value)
+}
+
+/// Returns a Boolean value indicating whether two values are not equal.
+@warn_unused_result
+public func != <T: Equatable>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<Bool> {
+    return Lazy(lhs.value != rhs.value)
+}
+
+/// Returns a Boolean value indicating whether two values are not equal.
+@warn_unused_result
+public func != <T: Equatable>(lhs: Lazy<T>, rhs: T) -> Lazy<Bool> {
+    return Lazy(lhs.value != rhs)
+}
+
+/// Returns a Boolean value indicating whether two values are not equal.
+@warn_unused_result
+public func != <T: Equatable>(lhs: T, rhs: Lazy<T>) -> Lazy<Bool> {
+    return Lazy(lhs != rhs.value)
+}
+
+/// Returns a Boolean value indicating whether two values are not equal.
+@warn_unused_result
+public func != <T: Equatable>(lhs: Lazy<T?>, rhs: Lazy<T?>) -> Lazy<Bool> {
+    return Lazy(lhs.value != rhs.value)
+}
+
+/// Returns a Boolean value indicating whether two values are not equal.
+@warn_unused_result
+public func != <T: Equatable>(lhs: Lazy<T?>, rhs: T?) -> Lazy<Bool> {
+    return Lazy(lhs.value != rhs)
+}
+
+/// Returns a Boolean value indicating whether two values are not equal.
+@warn_unused_result
+public func != <T: Equatable>(lhs: T?, rhs: Lazy<T?>) -> Lazy<Bool> {
+    return Lazy(lhs != rhs.value)
+}
+
+/// Returns a Boolean value indicating whether two values are not equal.
+@warn_unused_result
+public func != <T: Equatable>(lhs: Lazy<T!>, rhs: Lazy<T!>) -> Lazy<Bool> {
+    return Lazy(lhs.value != rhs.value)
+}
+
+/// Returns a Boolean value indicating whether two values are not equal.
+@warn_unused_result
+public func != <T: Equatable>(lhs: Lazy<T!>, rhs: T!) -> Lazy<Bool> {
+    return Lazy(lhs.value != rhs)
+}
+
+/// Returns a Boolean value indicating whether two values are not equal.
+@warn_unused_result
+public func != <T: Equatable>(lhs: T!, rhs: Lazy<T!>) -> Lazy<Bool> {
+    return Lazy(lhs != rhs.value)
+}
+
 #if swift(>=3)
 
 /// Subtracts `lhs` and `rhs`.
