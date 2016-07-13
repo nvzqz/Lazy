@@ -234,6 +234,8 @@ public func == <T: Equatable>(lhs: T?, rhs: Lazy<T?>) -> Lazy<Bool> {
     return Lazy(lhs == rhs.value)
 }
 
+#if !swift(>=3)
+
 /// Returns a Boolean value indicating whether two values are equal.
 @warn_unused_result
 public func == <T: Equatable>(lhs: Lazy<T!>, rhs: Lazy<T!>) -> Lazy<Bool> {
@@ -251,6 +253,8 @@ public func == <T: Equatable>(lhs: Lazy<T!>, rhs: T!) -> Lazy<Bool> {
 public func == <T: Equatable>(lhs: T!, rhs: Lazy<T!>) -> Lazy<Bool> {
     return Lazy(lhs == rhs.value)
 }
+
+#endif
 
 /// Returns a Boolean value indicating whether two values are not equal.
 @warn_unused_result
@@ -288,6 +292,8 @@ public func != <T: Equatable>(lhs: T?, rhs: Lazy<T?>) -> Lazy<Bool> {
     return Lazy(lhs != rhs.value)
 }
 
+#if !swift(>=3)
+
 /// Returns a Boolean value indicating whether two values are not equal.
 @warn_unused_result
 public func != <T: Equatable>(lhs: Lazy<T!>, rhs: Lazy<T!>) -> Lazy<Bool> {
@@ -305,6 +311,8 @@ public func != <T: Equatable>(lhs: Lazy<T!>, rhs: T!) -> Lazy<Bool> {
 public func != <T: Equatable>(lhs: T!, rhs: Lazy<T!>) -> Lazy<Bool> {
     return Lazy(lhs != rhs.value)
 }
+
+#endif
 
 #if swift(>=3)
 
