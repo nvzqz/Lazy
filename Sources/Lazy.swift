@@ -258,17 +258,17 @@ public func / <T: IntegerArithmetic>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs / rhs.value)
 }
 
-/// Divides `lhs` and `rhs`.
+/// Divides `lhs` and `rhs`, returning the remainder.
 public func % <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs.value % rhs.value)
 }
 
-/// Divides `lhs` and `rhs`.
+/// Divides `lhs` and `rhs`, returning the remainder.
 public func % <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
     return Lazy(lhs.value % rhs)
 }
 
-/// Divides `lhs` and `rhs`.
+/// Divides `lhs` and `rhs`, returning the remainder.
 public func % <T: IntegerArithmetic>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs % rhs.value)
 }
@@ -417,19 +417,19 @@ public func / <T: IntegerArithmeticType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs / rhs.value)
 }
 
-/// Divides `lhs` and `rhs`.
+/// Divides `lhs` and `rhs`, returning the remainder.
 @warn_unused_result
 public func % <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs.value % rhs.value)
 }
 
-/// Divides `lhs` and `rhs`.
+/// Divides `lhs` and `rhs`, returning the remainder.
 @warn_unused_result
 public func % <T: IntegerArithmeticType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
     return Lazy(lhs.value % rhs)
 }
 
-/// Divides `lhs` and `rhs`.
+/// Divides `lhs` and `rhs`, returning the remainder.
 @warn_unused_result
 public func % <T: IntegerArithmeticType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs % rhs.value)
@@ -516,3 +516,147 @@ public prefix func ~ <T: BitwiseOperationsType>(x: Lazy<T>) -> Lazy<T> {
 }
 
 #endif
+
+/// Adds `lhs` and `rhs`.
+@warn_unused_result
+public func + (lhs: Lazy<Double>, rhs: Lazy<Double>) -> Lazy<Double> {
+    return Lazy(lhs.value + rhs.value)
+}
+
+/// Adds `lhs` and `rhs`.
+@warn_unused_result
+public func + (lhs: Lazy<Double>, rhs: Double) -> Lazy<Double> {
+    return Lazy(lhs.value + rhs)
+}
+
+/// Adds `lhs` and `rhs`.
+@warn_unused_result
+public func + (lhs: Double, rhs: Lazy<Double>) -> Lazy<Double> {
+    return Lazy(lhs + rhs.value)
+}
+
+/// Subtracts `lhs` and `rhs`.
+@warn_unused_result
+public func - (lhs: Lazy<Double>, rhs: Lazy<Double>) -> Lazy<Double> {
+    return Lazy(lhs.value - rhs.value)
+}
+
+/// Subtracts `lhs` and `rhs`.
+@warn_unused_result
+public func - (lhs: Lazy<Double>, rhs: Double) -> Lazy<Double> {
+    return Lazy(lhs.value - rhs)
+}
+
+/// Subtracts `lhs` and `rhs`.
+@warn_unused_result
+public func - (lhs: Double, rhs: Lazy<Double>) -> Lazy<Double> {
+    return Lazy(lhs - rhs.value)
+}
+
+/// Multiplies `lhs` and `rhs`.
+@warn_unused_result
+public func * (lhs: Lazy<Double>, rhs: Lazy<Double>) -> Lazy<Double> {
+    return Lazy(lhs.value * rhs.value)
+}
+
+/// Multiplies `lhs` and `rhs`.
+@warn_unused_result
+public func * (lhs: Lazy<Double>, rhs: Double) -> Lazy<Double> {
+    return Lazy(lhs.value * rhs)
+}
+
+/// Multiplies `lhs` and `rhs`.
+@warn_unused_result
+public func * (lhs: Double, rhs: Lazy<Double>) -> Lazy<Double> {
+    return Lazy(lhs * rhs.value)
+}
+
+/// Divides `lhs` and `rhs`.
+@warn_unused_result
+public func / (lhs: Lazy<Double>, rhs: Lazy<Double>) -> Lazy<Double> {
+    return Lazy(lhs.value / rhs.value)
+}
+
+/// Divides `lhs` and `rhs`.
+@warn_unused_result
+public func / (lhs: Lazy<Double>, rhs: Double) -> Lazy<Double> {
+    return Lazy(lhs.value / rhs)
+}
+
+/// Divides `lhs` and `rhs`.
+@warn_unused_result
+public func / (lhs: Double, rhs: Lazy<Double>) -> Lazy<Double> {
+    return Lazy(lhs / rhs.value)
+}
+
+/// Adds `lhs` and `rhs`.
+@warn_unused_result
+public func + (lhs: Lazy<Float>, rhs: Lazy<Float>) -> Lazy<Float> {
+    return Lazy(lhs.value + rhs.value)
+}
+
+/// Adds `lhs` and `rhs`.
+@warn_unused_result
+public func + (lhs: Lazy<Float>, rhs: Float) -> Lazy<Float> {
+    return Lazy(lhs.value + rhs)
+}
+
+/// Adds `lhs` and `rhs`.
+@warn_unused_result
+public func + (lhs: Float, rhs: Lazy<Float>) -> Lazy<Float> {
+    return Lazy(lhs + rhs.value)
+}
+
+/// Subtracts `lhs` and `rhs`.
+@warn_unused_result
+public func - (lhs: Lazy<Float>, rhs: Lazy<Float>) -> Lazy<Float> {
+    return Lazy(lhs.value - rhs.value)
+}
+
+/// Subtracts `lhs` and `rhs`.
+@warn_unused_result
+public func - (lhs: Lazy<Float>, rhs: Float) -> Lazy<Float> {
+    return Lazy(lhs.value - rhs)
+}
+
+/// Subtracts `lhs` and `rhs`.
+@warn_unused_result
+public func - (lhs: Float, rhs: Lazy<Float>) -> Lazy<Float> {
+    return Lazy(lhs - rhs.value)
+}
+
+/// Multiplies `lhs` and `rhs`.
+@warn_unused_result
+public func * (lhs: Lazy<Float>, rhs: Lazy<Float>) -> Lazy<Float> {
+    return Lazy(lhs.value * rhs.value)
+}
+
+/// Multiplies `lhs` and `rhs`.
+@warn_unused_result
+public func * (lhs: Lazy<Float>, rhs: Float) -> Lazy<Float> {
+    return Lazy(lhs.value * rhs)
+}
+
+/// Multiplies `lhs` and `rhs`.
+@warn_unused_result
+public func * (lhs: Float, rhs: Lazy<Float>) -> Lazy<Float> {
+    return Lazy(lhs * rhs.value)
+}
+
+/// Divides `lhs` and `rhs`.
+@warn_unused_result
+public func / (lhs: Lazy<Float>, rhs: Lazy<Float>) -> Lazy<Float> {
+    return Lazy(lhs.value / rhs.value)
+}
+
+/// Divides `lhs` and `rhs`.
+@warn_unused_result
+public func / (lhs: Lazy<Float>, rhs: Float) -> Lazy<Float> {
+    return Lazy(lhs.value / rhs)
+}
+
+/// Divides `lhs` and `rhs`.
+@warn_unused_result
+public func / (lhs: Float, rhs: Lazy<Float>) -> Lazy<Float> {
+    return Lazy(lhs / rhs.value)
+}
