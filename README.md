@@ -98,6 +98,17 @@ A lazy value is evaluated the first time its contained value is referenced.
 If you need to evaluate a lazy value without getting it, you can do so with the
 `evaluate()` method.
 
+### Checking Evaluation
+
+Not sure if a lazy value has been evaluated just yet? Simply check `wasEvaluated`!
+
+```swift
+let lazyInt = Lazy(1)
+print(lazyInt.wasEvaluated)  // false
+let someInt = lazyInt.value
+print(lazyInt.wasEvaluated)  // true
+```
+
 ### Number Operations
 
 Lazy allows you to be very laid back with numerical operations.
