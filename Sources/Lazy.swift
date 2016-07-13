@@ -31,6 +31,8 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
     private var _ref: _LazyRef<Value>
 
     /// The value for `self`.
+    ///
+    /// Getting the value evaluates `self`.
     public var value: Value {
         get {
             if let value = _ref.value {
@@ -50,19 +52,19 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
         }
     }
 
-    /// `true` if `value` is initialized.
-    public var isInitialized: Bool {
+    /// `true` if `self` was previously evaluated.
+    public var wasEvaluated: Bool {
         return _ref.value != nil
     }
 
     /// A textual representation of this instance.
     public var description: String {
-        return "Lazy(\(_ref.value.map(String.init(_:)) ?? "Uninitialized"))"
+        return "Lazy(\(_ref.value.map(String.init(_:)) ?? "Unevaluated"))"
     }
 
     /// A textual representation of this instance, suitable for debugging.
     public var debugDescription: String {
-        return "Lazy(\(_ref.value.map(String.init(reflecting:)) ?? "Uninitialized"))"
+        return "Lazy(\(_ref.value.map(String.init(reflecting:)) ?? "Unevaluated"))"
     }
 
     #if swift(>=3)
@@ -92,9 +94,9 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
 
     #endif
 
-    /// Initializes `value`.
-    public func initialize() {
-        if !isInitialized {
+    /// Evaluates `self`.
+    public func evaluate() {
+        if !wasEvaluated {
             _ref.value = _ref.closure()
         }
     }
