@@ -2,6 +2,20 @@
 
 Save the hard work for later.
 
+## The Problem
+
+Swift allows for lazy variables out-of-the-box, however they're fairly restricted.
+
+1. They're only available within a type definition and require a default value
+that relies on limited surrounding context.
+
+2. They can't be referenced from within `let` constant struct instances.
+
+Lazy solves these two problems by giving you full control over how *you* want to
+be lazy. For example, you can declare a `Lazy` instance *anywhere*, regardless
+of scope. You can also use a `Lazy` value within any type, regardless of
+instances being constants or not.
+
 ## Installation
 
 ### Compatibility
