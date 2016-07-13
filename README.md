@@ -131,3 +131,7 @@ These can be used in combination with each other for ultimate laziness:
 ```swift
 Lazy("I should sleep in today!")*.uppercased()~  // "I SHOULD SLEEP IN TODAY!"
 ```
+
+## License
+
+Lazy is released under the [MIT License](https://opensource.org/licenses/MIT).
