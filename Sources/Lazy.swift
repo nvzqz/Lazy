@@ -198,6 +198,21 @@ public postfix func ~ <T>(@autoclosure(escaping) value: () -> T) -> Lazy<T> {
 
 #if swift(>=3)
 
+/// Subtracts `lhs` and `rhs`.
+public func - <T: SignedNumber>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value - rhs.value)
+}
+
+/// Subtracts `lhs` and `rhs`.
+public func - <T: SignedNumber>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value - rhs)
+}
+
+/// Subtracts `lhs` and `rhs`.
+public func - <T: SignedNumber>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs - rhs.value)
+}
+
 /// Adds `lhs` and `rhs`.
 public func + <T: IntegerArithmetic>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
     return Lazy(lhs.value + rhs.value)
@@ -344,6 +359,24 @@ public prefix func ~ <T: BitwiseOperations>(x: Lazy<T>) -> Lazy<T> {
 }
 
 #else
+
+/// Subtracts `lhs` and `rhs`.
+@warn_unused_result
+public func - <T: SignedNumberType>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs.value - rhs.value)
+}
+
+/// Subtracts `lhs` and `rhs`.
+@warn_unused_result
+public func - <T: SignedNumberType>(lhs: Lazy<T>, rhs: T) -> Lazy<T> {
+    return Lazy(lhs.value - rhs)
+}
+
+/// Subtracts `lhs` and `rhs`.
+@warn_unused_result
+public func - <T: SignedNumberType>(lhs: T, rhs: Lazy<T>) -> Lazy<T> {
+    return Lazy(lhs - rhs.value)
+}
 
 /// Adds `lhs` and `rhs`.
 @warn_unused_result
