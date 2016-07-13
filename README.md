@@ -136,7 +136,7 @@ Lazy allows you to be very laid back with numerical operations.
 
 ```swift
 let meaningOfLife = Lazy(8) * 5 + 2
-let result = result.value  // 42
+let result = meaningOfLife.value  // 42
 ```
 
 ### Shorthand Operations
