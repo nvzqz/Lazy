@@ -213,37 +213,31 @@ public postfix func ~ <T>(@autoclosure(escaping) value: () -> T) -> Lazy<T> {
 #endif
 
 /// Returns a Boolean value indicating whether two values are equal.
-@warn_unused_result
 public func == <T: Equatable>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<Bool> {
     return Lazy(lhs.value == rhs.value)
 }
 
 /// Returns a Boolean value indicating whether two values are equal.
-@warn_unused_result
 public func == <T: Equatable>(lhs: Lazy<T>, rhs: T) -> Lazy<Bool> {
     return Lazy(lhs.value == rhs)
 }
 
 /// Returns a Boolean value indicating whether two values are equal.
-@warn_unused_result
 public func == <T: Equatable>(lhs: T, rhs: Lazy<T>) -> Lazy<Bool> {
     return Lazy(lhs == rhs.value)
 }
 
 /// Returns a Boolean value indicating whether two values are equal.
-@warn_unused_result
 public func == <T: Equatable>(lhs: Lazy<T?>, rhs: Lazy<T?>) -> Lazy<Bool> {
     return Lazy(lhs.value == rhs.value)
 }
 
 /// Returns a Boolean value indicating whether two values are equal.
-@warn_unused_result
 public func == <T: Equatable>(lhs: Lazy<T?>, rhs: T?) -> Lazy<Bool> {
     return Lazy(lhs.value == rhs)
 }
 
 /// Returns a Boolean value indicating whether two values are equal.
-@warn_unused_result
 public func == <T: Equatable>(lhs: T?, rhs: Lazy<T?>) -> Lazy<Bool> {
     return Lazy(lhs == rhs.value)
 }
@@ -271,37 +265,31 @@ public func == <T: Equatable>(lhs: T!, rhs: Lazy<T!>) -> Lazy<Bool> {
 #endif
 
 /// Returns a Boolean value indicating whether two values are not equal.
-@warn_unused_result
 public func != <T: Equatable>(lhs: Lazy<T>, rhs: Lazy<T>) -> Lazy<Bool> {
     return Lazy(lhs.value != rhs.value)
 }
 
 /// Returns a Boolean value indicating whether two values are not equal.
-@warn_unused_result
 public func != <T: Equatable>(lhs: Lazy<T>, rhs: T) -> Lazy<Bool> {
     return Lazy(lhs.value != rhs)
 }
 
 /// Returns a Boolean value indicating whether two values are not equal.
-@warn_unused_result
 public func != <T: Equatable>(lhs: T, rhs: Lazy<T>) -> Lazy<Bool> {
     return Lazy(lhs != rhs.value)
 }
 
 /// Returns a Boolean value indicating whether two values are not equal.
-@warn_unused_result
 public func != <T: Equatable>(lhs: Lazy<T?>, rhs: Lazy<T?>) -> Lazy<Bool> {
     return Lazy(lhs.value != rhs.value)
 }
 
 /// Returns a Boolean value indicating whether two values are not equal.
-@warn_unused_result
 public func != <T: Equatable>(lhs: Lazy<T?>, rhs: T?) -> Lazy<Bool> {
     return Lazy(lhs.value != rhs)
 }
 
 /// Returns a Boolean value indicating whether two values are not equal.
-@warn_unused_result
 public func != <T: Equatable>(lhs: T?, rhs: Lazy<T?>) -> Lazy<Bool> {
     return Lazy(lhs != rhs.value)
 }
@@ -683,145 +671,121 @@ public prefix func ~ <T: BitwiseOperationsType>(x: Lazy<T>) -> Lazy<T> {
 #endif
 
 /// Adds `lhs` and `rhs`.
-@warn_unused_result
 public func + (lhs: Lazy<Double>, rhs: Lazy<Double>) -> Lazy<Double> {
     return Lazy(lhs.value + rhs.value)
 }
 
 /// Adds `lhs` and `rhs`.
-@warn_unused_result
 public func + (lhs: Lazy<Double>, rhs: Double) -> Lazy<Double> {
     return Lazy(lhs.value + rhs)
 }
 
 /// Adds `lhs` and `rhs`.
-@warn_unused_result
 public func + (lhs: Double, rhs: Lazy<Double>) -> Lazy<Double> {
     return Lazy(lhs + rhs.value)
 }
 
 /// Subtracts `lhs` and `rhs`.
-@warn_unused_result
 public func - (lhs: Lazy<Double>, rhs: Lazy<Double>) -> Lazy<Double> {
     return Lazy(lhs.value - rhs.value)
 }
 
 /// Subtracts `lhs` and `rhs`.
-@warn_unused_result
 public func - (lhs: Lazy<Double>, rhs: Double) -> Lazy<Double> {
     return Lazy(lhs.value - rhs)
 }
 
 /// Subtracts `lhs` and `rhs`.
-@warn_unused_result
 public func - (lhs: Double, rhs: Lazy<Double>) -> Lazy<Double> {
     return Lazy(lhs - rhs.value)
 }
 
 /// Multiplies `lhs` and `rhs`.
-@warn_unused_result
 public func * (lhs: Lazy<Double>, rhs: Lazy<Double>) -> Lazy<Double> {
     return Lazy(lhs.value * rhs.value)
 }
 
 /// Multiplies `lhs` and `rhs`.
-@warn_unused_result
 public func * (lhs: Lazy<Double>, rhs: Double) -> Lazy<Double> {
     return Lazy(lhs.value * rhs)
 }
 
 /// Multiplies `lhs` and `rhs`.
-@warn_unused_result
 public func * (lhs: Double, rhs: Lazy<Double>) -> Lazy<Double> {
     return Lazy(lhs * rhs.value)
 }
 
 /// Divides `lhs` and `rhs`.
-@warn_unused_result
 public func / (lhs: Lazy<Double>, rhs: Lazy<Double>) -> Lazy<Double> {
     return Lazy(lhs.value / rhs.value)
 }
 
 /// Divides `lhs` and `rhs`.
-@warn_unused_result
 public func / (lhs: Lazy<Double>, rhs: Double) -> Lazy<Double> {
     return Lazy(lhs.value / rhs)
 }
 
 /// Divides `lhs` and `rhs`.
-@warn_unused_result
 public func / (lhs: Double, rhs: Lazy<Double>) -> Lazy<Double> {
     return Lazy(lhs / rhs.value)
 }
 
 /// Adds `lhs` and `rhs`.
-@warn_unused_result
 public func + (lhs: Lazy<Float>, rhs: Lazy<Float>) -> Lazy<Float> {
     return Lazy(lhs.value + rhs.value)
 }
 
 /// Adds `lhs` and `rhs`.
-@warn_unused_result
 public func + (lhs: Lazy<Float>, rhs: Float) -> Lazy<Float> {
     return Lazy(lhs.value + rhs)
 }
 
 /// Adds `lhs` and `rhs`.
-@warn_unused_result
 public func + (lhs: Float, rhs: Lazy<Float>) -> Lazy<Float> {
     return Lazy(lhs + rhs.value)
 }
 
 /// Subtracts `lhs` and `rhs`.
-@warn_unused_result
 public func - (lhs: Lazy<Float>, rhs: Lazy<Float>) -> Lazy<Float> {
     return Lazy(lhs.value - rhs.value)
 }
 
 /// Subtracts `lhs` and `rhs`.
-@warn_unused_result
 public func - (lhs: Lazy<Float>, rhs: Float) -> Lazy<Float> {
     return Lazy(lhs.value - rhs)
 }
 
 /// Subtracts `lhs` and `rhs`.
-@warn_unused_result
 public func - (lhs: Float, rhs: Lazy<Float>) -> Lazy<Float> {
     return Lazy(lhs - rhs.value)
 }
 
 /// Multiplies `lhs` and `rhs`.
-@warn_unused_result
 public func * (lhs: Lazy<Float>, rhs: Lazy<Float>) -> Lazy<Float> {
     return Lazy(lhs.value * rhs.value)
 }
 
 /// Multiplies `lhs` and `rhs`.
-@warn_unused_result
 public func * (lhs: Lazy<Float>, rhs: Float) -> Lazy<Float> {
     return Lazy(lhs.value * rhs)
 }
 
 /// Multiplies `lhs` and `rhs`.
-@warn_unused_result
 public func * (lhs: Float, rhs: Lazy<Float>) -> Lazy<Float> {
     return Lazy(lhs * rhs.value)
 }
 
 /// Divides `lhs` and `rhs`.
-@warn_unused_result
 public func / (lhs: Lazy<Float>, rhs: Lazy<Float>) -> Lazy<Float> {
     return Lazy(lhs.value / rhs.value)
 }
 
 /// Divides `lhs` and `rhs`.
-@warn_unused_result
 public func / (lhs: Lazy<Float>, rhs: Float) -> Lazy<Float> {
     return Lazy(lhs.value / rhs)
 }
 
 /// Divides `lhs` and `rhs`.
-@warn_unused_result
 public func / (lhs: Float, rhs: Lazy<Float>) -> Lazy<Float> {
     return Lazy(lhs / rhs.value)
 }
