@@ -70,7 +70,7 @@ to learn more.
     ```ruby
     use_frameworks!
 
-    pod 'Lazy', '~> 1.0.0'
+    pod 'Lazy', '~> 1.1.0'
     ```
 
     If you want to be on the bleeding edge, replace the last line with:
