@@ -35,36 +35,37 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
     /// Getting the value evaluates `self`.
     public var value: Value {
         get {
-            if let value = _ref.value {
+            switch _ref.option {
+            case let .value(value):
                 return value
-            } else {
-                let value = _ref.closure()
-                _ref.value = value
+            case let .closure(closure):
+                let value = closure()
+                _ref.option = .value(value)
                 return value
             }
         }
         set {
             if !isUniquelyReferencedNonObjC(&_ref) {
-                _ref = _LazyRef(value: newValue, closure: { newValue })
+                _ref = _LazyRef(option: .value(newValue))
             } else {
-                _ref.value = newValue
+                _ref.option = .value(newValue)
             }
         }
     }
 
     /// `true` if `self` was previously evaluated.
     public var wasEvaluated: Bool {
-        return _ref.value != nil
+        return _ref.optionalValue != nil
     }
 
     /// A textual representation of this instance.
     public var description: String {
-        return "Lazy(\(_ref.value.map(String.init(_:)) ?? "Unevaluated"))"
+        return "Lazy(\(_ref.optionalValue.map(String.init(_:)) ?? "Unevaluated"))"
     }
 
     /// A textual representation of this instance, suitable for debugging.
     public var debugDescription: String {
-        return "Lazy(\(_ref.value.map(String.init(reflecting:)) ?? "Unevaluated"))"
+        return "Lazy(\(_ref.optionalValue.map(String.init(reflecting:)) ?? "Unevaluated"))"
     }
 
     #if swift(>=3)
@@ -96,8 +97,8 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
 
     /// Evaluates `self`.
     public func evaluate() {
-        if !wasEvaluated {
-            _ref.value = _ref.closure()
+        if case let .closure(closure) = _ref.option {
+            _ref.option = .value(closure())
         }
     }
     
@@ -106,35 +107,48 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
 /// Implementation detail for `Lazy<Value>`.
 private final class _LazyRef<Value> {
 
-    var value: Value?
+    var option: _LazyOption<Value>
 
-    var closure: () -> Value
+    var optionalValue: Value? {
+        if case let .value(value) = option {
+            return value
+        } else {
+            return nil
+        }
+    }
 
     #if swift(>=3)
 
     init(_ value: @autoclosure(escaping) () -> Value) {
-        closure = value
+        option = .closure(value)
     }
 
     #else
 
     init(@autoclosure(escaping) _ value: () -> Value) {
-        closure = value
+        option = .closure(value)
     }
 
     #endif
 
-    init(value: Value?, closure: () -> Value) {
-        self.value = value
-        self.closure = closure
+    init(option: _LazyOption<Value>) {
+        self.option = option
     }
+
+}
+
+private enum _LazyOption<Value> {
+
+    case closure(() -> Value)
+
+    case value(Value)
 
 }
 
 extension Lazy: CustomReflectable {
 
     private var _customMirror: Mirror {
-        return Mirror(self, children: ["value": _ref.value])
+        return Mirror(self, children: ["value": _ref.optionalValue])
     }
 
     #if swift(>=3)
