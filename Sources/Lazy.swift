@@ -28,7 +28,15 @@
 /// A lazy enclosure around a value.
 public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible {
 
+    #if swift(>=3)
+
+    fileprivate var _ref: _LazyRef<Value>
+
+    #else
+
     private var _ref: _LazyRef<Value>
+
+    #endif
 
     /// The value for `self`.
     ///
@@ -45,7 +53,14 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
             }
         }
         set {
-            if !isUniquelyReferencedNonObjC(&_ref) {
+            #if swift(>=3)
+                if !isKnownUniquelyReferenced(&_ref) {
+
+                }
+            #else
+
+            #endif
+            if !isKnownUniquelyReferenced(&_ref) {
                 _ref = _LazyRef(option: .value(newValue))
             } else {
                 _ref.option = .value(newValue)
@@ -60,7 +75,7 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
 
     /// A textual representation of this instance.
     public var description: String {
-        return "Lazy(\(_ref.optionalValue.map(String.init(_:)) ?? "Unevaluated"))"
+        return "Lazy(\(_ref.optionalValue.map(String.init(describing:)) ?? "Unevaluated"))"
     }
 
     /// A textual representation of this instance, suitable for debugging.
@@ -71,12 +86,12 @@ public struct Lazy<Value>: CustomStringConvertible, CustomDebugStringConvertible
     #if swift(>=3)
 
     /// Create a lazy value.
-    public init(_ value: @autoclosure(escaping) () -> Value) {
+    public init(_ value: @escaping @autoclosure () -> Value) {
         _ref = _LazyRef(value)
     }
 
     /// Maps `transform` over `value` and returns a lazy result.
-    public func map<T>(_ transform: (Value) -> T) -> Lazy<T> {
+    public func map<T>(_ transform: @escaping (Value) -> T) -> Lazy<T> {
         return Lazy<T>(transform(self.value))
     }
 
@@ -119,7 +134,7 @@ private final class _LazyRef<Value> {
 
     #if swift(>=3)
 
-    init(_ value: @autoclosure(escaping) () -> Value) {
+    init(_ value: @escaping @autoclosure () -> Value) {
         option = .closure(value)
     }
 
@@ -148,7 +163,7 @@ private enum _LazyOption<Value> {
 extension Lazy: CustomReflectable {
 
     private var _customMirror: Mirror {
-        return Mirror(self, children: ["value": _ref.optionalValue])
+        return Mirror(self, children: ["value": _ref.optionalValue as Any])
     }
 
     #if swift(>=3)
@@ -191,18 +206,22 @@ extension Lazy where Value: AbsoluteValuable {
 
 }
 
+#if swift(>=3)
+postfix operator *
+postfix operator ~
+#else
+postfix operator ~ {}
 postfix operator * {}
+#endif
 
 /// Returns the `value` of `lazy`.
 public postfix func * <T>(lazy: Lazy<T>) -> T {
     return lazy.value
 }
 
-postfix operator ~ {}
-
 #if swift(>=3)
 /// Returns a lazy value.
-public postfix func ~ <T>(value: @autoclosure(escaping) () -> T) -> Lazy<T> {
+public postfix func ~ <T>(value: @autoclosure @escaping () -> T) -> Lazy<T> {
     return Lazy(value)
 }
 #else
