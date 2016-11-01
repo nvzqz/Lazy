@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name                      = "Lazy"
-    s.version                   = "1.1.0"
+    s.version                   = "1.2.0"
     s.summary                   = "Save the hard work for later."
     s.homepage                  = "https://github.com/nvzqz/#{s.name}"
     s.license                   = { :type => "MIT", :file => "LICENSE.md" }
